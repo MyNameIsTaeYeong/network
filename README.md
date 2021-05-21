@@ -16,3 +16,11 @@
 > >     - shared or dedicated?
 > >   - Digital Subscriber Line(DSL) : 통신사에서 제공해주는 Access Network. dedicated line이다.
 > >   - cable network : 케이블회사에서 제공하는 Access Network. share access network다.
+>
+> ### 1.3 The Network Core
+>
+> > 1.3.1 Packet Switching
+> >
+> > - 각 end system들이 메시지를 주고받을때, 메시지는 packet이라고 불리는 작은 chunk들로 쪼개진다.
+> > - Store-and-Forward Transmission : packet switch들은 outbound link에 첫번째 packet을 전송하기 전에 전체 packet들을 받아야만 한다.
+> > - Queuing Delays and Packet Loss :
