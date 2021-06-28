@@ -23,4 +23,8 @@
 > >
 > > - 각 end system들이 메시지를 주고받을때, 메시지는 packet이라고 불리는 작은 chunk들로 쪼개진다.
 > > - Store-and-Forward Transmission : packet switch들은 outbound link에 첫번째 packet을 전송하기 전에 전체 packet들을 받아야만 한다.
-> > - Queuing Delays and Packet Loss :
+> > - Queuing Delays and Packet Loss
+> >   - output buffer(output queue) : 패킷이 외부링크로 전송되기 전에 지연 또는 여러 상황에 의해 대기하는 곳.
+> >   - queuing delays : 패킷전송 지연
+> >   - packet loss : output buffer가 꽉 찼을 때 패킷이 드랍되는 현상.
+> > - Forwarding Tables and Routing Protocols
