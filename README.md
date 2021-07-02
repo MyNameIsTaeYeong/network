@@ -28,3 +28,7 @@
 > >   - queuing delays : 패킷전송 지연
 > >   - packet loss : output buffer가 꽉 찼을 때 패킷이 드랍되는 현상.
 > > - Forwarding Tables and Routing Protocols
+> >   - Forwarding Table : packet의 목적지 주소와 외부로 나가는 link가 맵핑되어 있는 테이블.
+> >   - Routing Protocol : 자동으로 Forwarding Table을 설정하는데 사용되는 절차.
+>
+> > 1.3.2 Circuit Switching
