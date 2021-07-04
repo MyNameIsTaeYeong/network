@@ -32,3 +32,6 @@
 > >   - Routing Protocol : 자동으로 Forwarding Table을 설정하는데 사용되는 절차.
 >
 > > 1.3.2 Circuit Switching
+> >
+> > - circuit : sender와 receiver사이의 connection.
+> > - sender와 receiver사이의 통신을 위해 미리 자원을 예약한 후 독점하여 사용한다. 자원을 독점했기 때문에 일정한 속도를 보장한다.
