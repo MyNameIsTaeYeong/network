@@ -35,3 +35,12 @@
 > >
 > > - circuit : sender와 receiver사이의 connection.
 > > - sender와 receiver사이의 통신을 위해 미리 자원을 예약한 후 독점하여 사용한다. 자원을 독점했기 때문에 일정한 속도를 보장한다.
+>
+> ### 1.4 Delay, Loss, and Throughput in Packet-Switched Networks
+>
+> > 1.4.1 Overview of Delay in Packet-Switched Networks
+> >
+> > - Processing Delay : 패킷의 header를 조사하고, 어디로 가야할 지를 정할 때 생기는 지연.
+> > - Queuing Delay : 다음 목적지로 가는 링크로 전송되기 위해 기다릴 때 생기는 지연.
+> > - Transmission Delay : 링크의 전송 비율에 의해 생기는 지연.
+> > - Propagation Delay : 패킷이 링크를 따라 전파될 때 생기는 지연.
