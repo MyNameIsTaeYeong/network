@@ -38,9 +38,54 @@
 >
 > ### 1.4 Delay, Loss, and Throughput in Packet-Switched Networks
 >
-> > 1.4.1 Overview of Delay in Packet-Switched Networks
+> : 네트워크의 퍼포먼스를 얘기할때, 가장 주요하게 생각하는 3가지 변수. Delay, Loss, and Throughput.
+>
+> > ### Delay
 > >
 > > - Processing Delay : 패킷의 header를 조사하고, 어디로 가야할 지를 정할 때 생기는 지연.
 > > - Queuing Delay : 다음 목적지로 가는 링크로 전송되기 위해 기다릴 때 생기는 지연.
 > > - Transmission Delay : 링크의 전송 비율에 의해 생기는 지연.
 > > - Propagation Delay : 패킷이 링크를 따라 전파될 때 생기는 지연.
+>
+> > ### Loss
+> >
+> > - Buffer(queue)는 유한하기 때문에 만약 buffer가 꽉 차있을 때, 패킷이 도착한다면, 그 패킷은 drop된다.
+>
+> > ### Throughput
+> >
+> > - Sender와 Receiver사이에 전송되는 비율(bit/time)
+> > - Bottleneck link : End to End throughput을 제한하는 링크. 전송 비율이 작은 링크를 의미한다.
+>
+> ### 1.5 Protocol layers
+>
+> > ### Internet protocol stack
+> >
+> > - application : network application을 지원(HTTP, FTM, SMTP)한다. application에서 발생하는 Message를 만든다.
+> > - transport : Source process 와 Destination process사이에 데이터를 전송한다.
+> > - network : Source host와 Destination host사이를 연결한다.
+> > - link : 한 홉(node)를 연결한다.
+> > - physical : wire에 bit를 집어넣는다.
+>
+> ### 1.6 Networks under attack : security
+>
+> > ### Malware
+> >
+> > - virus : 받고 실행하였을 때, 감염된다.
+> > - worm : 받기만 하여도 감염된다. 스스로 실행하기 떄문.
+>
+> > ### botnet
+> >
+> > - 감염된 host
+>
+> > ### Denial of Service(DoS)
+> >
+> > - traffic을 증가시켜 resource를 이용가능하지 않도록 만든다.
+> > - 타켓을 정하고, 타겟 주변 host들을 botnet으로 만들고, 타켓에 패킷을 보내 트래픽을 증가시킨다.
+>
+> > ### sniffing
+> >
+> > - Broadcast media(shared ethernet, wireless)에서 여러 사용자의 packet들을 읽거나 쓴다.
+>
+> > ### spoofing
+> >
+> > - 마치 다른 사용자가 메시지를 보낸 것처럼 위장한다.
