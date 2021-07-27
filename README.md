@@ -1,5 +1,23 @@
 # Computer Networking
 
+```
+참고한 책
+
+Computer Networking
+
+A Top-Down Approach
+
+Seventh Edition
+
+James F. Kurose
+
+University of Massachusetts, Amherst
+
+Keith W. Ross
+
+NYU and NYU Shanghai
+```
+
 > ## Chapter 1 Computer Networks and the Internet
 >
 > - Internet : network of networks.
@@ -89,3 +107,37 @@
 > > ### spoofing
 > >
 > > - 마치 다른 사용자가 메시지를 보낸 것처럼 위장한다.
+>
+> ## Chapter 2 Application Layer
+>
+> ### 2.1 Principles of Network Applications
+>
+> > #### 2.1.1 Network Application Architectures
+> >
+> > - Client - Server : 하나의 서버를 중심으로 여러 클라이언트들이 통신하는 구조.
+> > - Ppeer to Peer(P2P) : End System들이 직접적으로 통신하는 구조.
+>
+> > #### 2.1.2 Processes Communicating
+> >
+> > - 같은 호스트인 경우는 process끼리 운영체제에 의해 통신한다.
+> > - 다른 호스트인 경우 메시지를 교환하여 통신한다.
+> > - Client - Server 구조인 경우
+> >   - client process : 통신을 시작하는 프로세스.
+> >   - server process : client process와 연결되기 위해 기다리는 프로세스.
+> > - P2P구조인 경우 : 한 호스트에서 client, server process들을 다 가진다.
+> > - Socket : Application계층과 Trasport계층이 메시지를 주고받는 문.
+> > - Addressing Processes
+> >   - 메시지를 받기위해서 프로세스는 식별자를 가져야 한다.
+> >   - 호스트 장치는 고유한 32비트 ip주소를 가진다.
+> >   - 한 호스트에는 여러 프로그램이 돌아가므로, 프로그램을 식별하기 위해서는 포트번호가 사용된다.
+>
+> > #### 2.1.3 Transport Services Available to Applications
+> >
+> > - Data integrity : 몇몇 앱은 100% 데이터가 전송되기를 원한다.
+> > - Timing : 몇몇 앱은 낮은 delay를 필요로 한다.
+> > - Throughput : 몇몇 앱은 최소한의 처리량을 필요로 한다.
+> > - Security : 데이터 무결성, 암호화등
+>
+> > #### 2.1.4 Transport Services Provided by the Internet
+>
+> > #### 2.1.5 Application-Layer Protocols
