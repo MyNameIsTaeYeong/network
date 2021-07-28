@@ -139,5 +139,34 @@ NYU and NYU Shanghai
 > > - Security : 데이터 무결성, 암호화등
 >
 > > #### 2.1.4 Transport Services Provided by the Internet
->
+> >
+> > - TCP service : connection에 기반하여 데이터를 확실히 전송할 수 있고, 데이터 전송시 발생하는 에러사항들을 방지 할 수 있다.
+> > - UDP service : 데이터 전송에 신뢰할 수 없지만 약간의 데이터 손실이 가능한 상황에서는 connection을 연결할 필요가 없는 장점이 있다.
+> >
 > > #### 2.1.5 Application-Layer Protocols
+> >
+> > - 교환되는 메시지 타입을 정의한다.(req, res)
+> > - 메시지 문법을 정의한다.(field)
+> > - 메시지 의미를 정의한다.
+> > - 메시지를 주고받는 규칙을 정의한다.
+>
+> ### 2.2 The Web and HTTP
+>
+> - 웹페이지는 여러 Object들로 이루어져 있다.
+> - Object는 HTML파일, 이미지파일등이 될 수 있다.
+> - 웹페이지는 여러개의 참조되는 Object들을 포함하는 base - HTML file로 구성되어 있다.
+> - 각 Object들은 URL에 의해 주소지정이 가능하다.
+>
+> > #### 2.2.1 Overview of HTTP
+> >
+> > - HTTP : hypertext tranfer protocol의 약어로 웹의 에플리케이션 계층에서 사용하는 protocol이다.
+> >
+> > #### 2.2.2 Non-Persistent and Persistent Connections
+> >
+> > - Non-Persistent HTTP
+> >   - 많아야 한개의 object가 TCP connection에 의해 보내진다.
+> >   - 그런 다음 connection이 닫힌다.
+> >   - 여러개의 object들을 다운로드 하기위해서는 여러번의 connection을 필요로 한다.
+> > - Persistent HTTP
+> >
+> > #### 2.2.3 HTTP Message Format
