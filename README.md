@@ -167,6 +167,19 @@ NYU and NYU Shanghai
 > >   - 많아야 한개의 object가 TCP connection에 의해 보내진다.
 > >   - 그런 다음 connection이 닫힌다.
 > >   - 여러개의 object들을 다운로드 하기위해서는 여러번의 connection을 필요로 한다.
+> >   - connection의 의미는 client process와 server process가 메시지를 주고받을 수 있는 socket을 만든다는 것이다.
+> > - RTT : 작은 패킷이 클라이언트에서 출발하여 서버에 갔다오는 시간. Non-Persistent HTTP는 object 1개를 보내는데 2RTT + 파일전송시간이 걸린다.
 > > - Persistent HTTP
+> > - connection을 유지한 체로 request와 response를 주고받는다.
+> > - 모든 object들에 대하여 거의 RTT에 가까운 시간이 걸린다.
 > >
 > > #### 2.2.3 HTTP Message Format
+> >
+> > - request와 response 유형의 메시지가 있다.
+> > - HTTP Request Message
+> >   - request line, header lines, body로 이루어져 있다.
+> >   - POST, GET유형의 업로드 방식이 있다.
+> >   - POST방식은 input이 request message의 entity body에 추가되어 업로드된다.
+> >   - GET방식은 input이 URL에 업로드된다.
+> > - HTTP Response Message
+> >   - status line, header lines, data로 이루어져 있다.
