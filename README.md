@@ -183,3 +183,44 @@ NYU and NYU Shanghai
 > >   - GET방식은 input이 URL에 업로드된다.
 > > - HTTP Response Message
 > >   - status line, header lines, data로 이루어져 있다.
+> >
+> > #### 2.2.4 User-Server Interaction: Cookies
+> >
+> > - server에 처음 방문하는 client의 경우 server는 쿠키ID를 만들고, 데이터베이스에 해당 ID에 관한 엔트리를 저장한다.
+> > - server는 http response message에 쿠키 헤더라인을 포함하여 보낸다.
+> > - client는 쿠키파일에 해당 아이디를 저장하고, 다음 request message부터 쿠키 헤더라인을 포함하여 보낸다.
+> > - server는 쿠키 ID에 해당하는 엔트리에 client의 history를 기록한다.
+> >
+> > #### 2.2.5 Web Caching
+> >
+> > - original server없이 client의 요청을 수행하기 위해 두는 장치. server와 같은 역할을 하여 proxy server라고 한다.
+> > - client는 request를 original server에 보내지 않고 proxy server에 보낸다.
+> > - 해당 요청에 관한 정보가 proxy server에 있다면 바로 응답을 해주고, 없다면 original server에 해당 요청에 대한 응답을 받아와 저장하고, 전해준다.
+> > - ISP에 대한 access link에 대한 부하를 줄여 비용을 아낄 수 있다.
+> > - original server까지 갈 필요가 없기때문에 속도 또한 빠르다.
+> > - The Conditional GET
+> >   - original server와 proxy server간에 데이터 불일치를 해결하기 위한 방법.
+> >   - client는 request message에 해당 데이터가 수정된 날짜를 포함하여 original server로 보낸다.
+> >   - original server는 해당 데이터의 수정된 날짜를 비교하여 같다면 304 Not Modified 메시지를 보내고, 이때 object는 포함하지 않는다.(access link의 부하를 줄이기 위해서이다.)
+> >   - 다르다면 object를 포함하는 메시지를 보낸다.
+>
+> ### 2.3 Electronic Mail in the Internet
+>
+> - email의 세 가지 주요 요소
+>
+>   - user agents : 메일메시지를 쓰고, 수정하고, 읽는 applications.
+>   - mail servers : mail box를 사용하여 유저의 메일을 받고, message queue를 사용하여 유저의 메시지를 보낸다.
+>   - simple mail transfer protocol(SMTP) : 메시지를 주고 받을때, 사용하는 protocol.
+>
+> > #### 2.3.1 SMTP
+> >
+> > - TCP connection위에서 동작한다.
+> > - 3단계로 구성된다.
+> >   - handshaking : TCP connection을 한다.
+> >   - transfer of messages : 전달할 object들을 전한다.
+> >   - closure : TCP connection을 해제한다.
+> >
+> > #### 2.3.2 Comparison with HTTP
+> >
+> > - HTTP는 pull, SMTP는 push
+> > - HTTP는 response message에 object 1개, SMTP는 여러 object를 보낸다.
