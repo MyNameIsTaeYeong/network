@@ -224,3 +224,29 @@ NYU and NYU Shanghai
 > >
 > > - HTTP는 pull, SMTP는 push
 > > - HTTP는 response message에 object 1개, SMTP는 여러 object를 보낸다.
+> >
+> > #### 2.3.4 Mail Access Protocols
+> >
+> > : receiver의 mailbox에서 메시지를 회수할 때, 사용하는 프로토콜.
+> >
+> > - POP3 : Download and Delete, Download and Keep 방식. client의 history가 기록되지 않는다.(어떤 메시지를 읽었는지 알 수 없다.)
+> > - IMAP : client의 history를 기록하여 session을 유지한다.(메일을 어떤걸 읽었는지 등을 알 수 있다.)
+>
+> ### 2.4 DNS—The Internet’s Directory Service
+>
+> > #### 2.4.1 Services Provided by DNS
+> >
+> > - hostname을 IP주소로 바꿔준다.
+> > - host에게 별명을 붙여준다.
+> > - load를 분산시킨다.(하나의 hostname에 여러개의 서버들이 연결되어있는 경우)
+> >
+> > #### 2.4.2 Overview of How DNS Works
+> >
+> > - A Distributed, Hierarchical Database : Root DNS, TLD DNS, Authorititive DNS순으로 계층을 이룬다.
+> > - 각 DNS서버는 하위 DNS서버의 주소를 알고있다.
+> > - Local DNS name server : 로컬에 위치한 proxy server.
+> > - client가 hostname을 입력한다 -> Local DNS name server가 IP주소를 알고 있는 경우 바로 알려준다. -> 모른다면 Root DNS에 요청한다. -> TLD DNS로 요청한다. -> Authorititive DNS 요청하여 해당 host의 IP주소를 알아낸다.
+> > - 위 과정에서 2가지 방식이 존재한다.
+> >   - iterated query : 다음 계층의 DNS주소를 알려준다.
+> >   - recursive query : 물어물어 실제 IP주소를 알려준다.
+> > - DNS Caching : 한번 요청한 IP주소를 저장한다.
