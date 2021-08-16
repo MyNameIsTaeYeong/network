@@ -239,6 +239,7 @@ NYU and NYU Shanghai
 > > - hostname을 IP주소로 바꿔준다.
 > > - host에게 별명을 붙여준다.
 > > - load를 분산시킨다.(하나의 hostname에 여러개의 서버들이 연결되어있는 경우)
+> > - mail server에 별명을 붙여준다.
 > >
 > > #### 2.4.2 Overview of How DNS Works
 > >
@@ -249,4 +250,15 @@ NYU and NYU Shanghai
 > > - 위 과정에서 2가지 방식이 존재한다.
 > >   - iterated query : 다음 계층의 DNS주소를 알려준다.
 > >   - recursive query : 물어물어 실제 IP주소를 알려준다.
-> > - DNS Caching : 한번 요청한 IP주소를 저장한다.
+> > - DNS Caching : 한번 요청한 IP주소를 저장한다.보통 TLD서버들이 캐싱되고 따라서 Root name server에 대한 부하를 줄인다.
+> > - DNS record : DNS server가 저장하는 기록. resource records가 있다. resource records는 hostname-to-IP address mappings을 기록한다.
+> >   - type A : hostname to ip adress
+> >   - type CNAME : alias name to canonical name(정식이름)
+> >   - type NS : domain to hostname of authoritative name server
+> >   - type MX : name to mail server
+>
+> ### 2.5 Peer-to-Peer File Distribution
+>
+> - 항시 가동되는 서버가 없다.
+> - 임의의 end systems끼리 직접적으로 소통한다.
+> - client - server architecture보다 속도가 빠르다. 각각의 peer들을 service capacity로 데려오기 때문.
