@@ -262,3 +262,38 @@ NYU and NYU Shanghai
 > - 항시 가동되는 서버가 없다.
 > - 임의의 end systems끼리 직접적으로 소통한다.
 > - client - server architecture보다 속도가 빠르다. 각각의 peer들을 service capacity로 데려오기 때문.
+>
+> ### 2.6 Socket Programming with UDP and TCP
+>
+> - Sockey Programming with UDP
+>   - client와 server사이에 connection을 필요로 하지 않는다.
+>   - sender는 각 패킷에 자기의 IP주소와 포트번호를 명시한다.(connection이 없기 때문이며, 이 작업은 운영체제가 수행한다.)
+>   - receiver는 패킷에서 sender의 IP주소와 포트번호를 추출한다.
+>   - 데이터가 손실될 수도, 순서가 바뀔 수도 있다.
+> - Socket Programming with TCP
+>   - server에서는 client를 받기위한 socket(welcomes client's contact)이 존재한다.
+>   - client는 TCP socket을 생성하고 server TCP와 connection을 한다.
+>   - server TCP는 client를 위한 socket을 생성하고 여기를 통해 communication을 한다.
+>   - 데이터 전송이 안정적이고, 순서유지가 된다.
+>
+> ## Chapter 3 Transport Layer
+>
+> ### 3.1 tranport-layer services
+>
+> - Transport services and protocols
+>   - 다른 host에서 실행중인 프로세스 사이의 논리적인 의사소통을 제공한다.
+>   - transport protocols은 end system에서 실행된다.(TCP, UDP)
+>     - send side : app messages를 segments로 나누고 network layer로 보낸다.
+>     - rcv side : segments를 messages로 재조립하고 app layer로 보낸다.
+> - Transport VS network layer
+>   - network layer : 호스트들 사이의 의사소통.
+>   - transport layer : 프로세스 사이의 의사소통.
+>
+> ### 3.2 multiplexing and demultiplexing
+>
+> - multiplexing / demultiplexing
+>   - sender측에서는 여러 프로세스들에서 오는 데이터들을 하나의 묶어서 보낸다.
+>   - receiver측에서는 묶어서 보내진 데이터를 풀어서 필요로하는 프로세스로 보낸다.
+> - Connectionless demultiplexing
+>   - sender측에서는 UDP segment에 목적지 IP주소와 포트번호를 명시한다.
+>   - receiver측에서는 segment에서 포트 번호를 확인하고 해당 번호를 가지는 socket으로 보낸다.
