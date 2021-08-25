@@ -293,7 +293,25 @@ NYU and NYU Shanghai
 >
 > - multiplexing / demultiplexing
 >   - sender측에서는 여러 프로세스들에서 오는 데이터들을 하나의 묶어서 보낸다.
->   - receiver측에서는 묶어서 보내진 데이터를 풀어서 필요로하는 프로세스로 보낸다.
+>   - receiver측에서는 묶여서 보내진 데이터를 풀어서 필요로하는 프로세스로 보낸다.
 > - Connectionless demultiplexing
 >   - sender측에서는 UDP segment에 목적지 IP주소와 포트번호를 명시한다.
 >   - receiver측에서는 segment에서 포트 번호를 확인하고 해당 번호를 가지는 socket으로 보낸다.
+> - Connection - oriented demultiplexing
+>   - TCP socket은 source ip address, source port number, dest ip address, dest port number 이 4가지 값에 의해 식별된다.
+>
+> ### 3.3 Connectionless transport : UDP
+>
+> : 별도의 connection없이 메시지를 보내는 프토토콜. 메시지는 중간에 잃어버리거나, 순서가 바뀔수도 있다. 약간의 손실이 큰 지장을 주지 않는 서비스에 사용된다. 예를들면 스트리밍 서비스가 있다. 간단하고, 헤더사이즈가 작으며, flow controll, congestion controll이 없어 바라는 만큼 메시지를 보낼 수 있다. application 자체에서 에러에 대한 대비를 한다면 오히려 유용할 수도 있다.
+>
+> ### 3.5 Connection - oriented transport : TCP
+>
+> : connection 기반에 프토토콜. 메시지 전송에 대해 안정적이며, 순서유지가 가능하고, 네트워크 흐름, 혼잡을 제어할 수 있다. segment 헤더가 크다.
+>
+> - TCP segment structure
+>   - sequence number : message의 순서. 중복으로 같은 메시지를 받는것을 예방하기도 한다.
+>   - acknowledgements : 다음에 받아야 하는 sequence number. 이전까지의 메시지는 잘 받은 상태.
+> - Timeout
+>   - acknowledgement를 기다리다가 설정된 시간이 지나면 메시지를 재전송 한다.
+>   - RTT보다 길게 잡는다.
+>   - 너무 짧으면 불필요한 재전송이 많이 발생하게 되고, 너무 길면 segment손실에 대해 반응이 느리다.
