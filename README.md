@@ -304,6 +304,15 @@ NYU and NYU Shanghai
 >
 > : 별도의 connection없이 메시지를 보내는 프토토콜. 메시지는 중간에 잃어버리거나, 순서가 바뀔수도 있다. 약간의 손실이 큰 지장을 주지 않는 서비스에 사용된다. 예를들면 스트리밍 서비스가 있다. 간단하고, 헤더사이즈가 작으며, flow controll, congestion controll이 없어 바라는 만큼 메시지를 보낼 수 있다. application 자체에서 에러에 대한 대비를 한다면 오히려 유용할 수도 있다.
 >
+> ### 3.4 Principles of reliable data transfer
+>
+> - checksum
+> - Acknowledgement
+> - Negative acknowledgement
+> - Timer
+> - Window, Pipelining
+> - Sequence number
+>
 > ### 3.5 Connection - oriented transport : TCP
 >
 > : connection 기반에 프토토콜. 메시지 전송에 대해 안정적이며, 순서유지가 가능하고, 네트워크 흐름, 혼잡을 제어할 수 있다. segment 헤더가 크다.
@@ -311,7 +320,22 @@ NYU and NYU Shanghai
 > - TCP segment structure
 >   - sequence number : message의 순서. 중복으로 같은 메시지를 받는것을 예방하기도 한다.
 >   - acknowledgements : 다음에 받아야 하는 sequence number. 이전까지의 메시지는 잘 받은 상태.
-> - Timeout
->   - acknowledgement를 기다리다가 설정된 시간이 지나면 메시지를 재전송 한다.
->   - RTT보다 길게 잡는다.
->   - 너무 짧으면 불필요한 재전송이 많이 발생하게 되고, 너무 길면 segment손실에 대해 반응이 느리다.
+>   - Timeout
+>     - acknowledgement를 기다리다가 설정된 시간이 지나면 메시지를 재전송 한다.
+>     - RTT보다 길게 잡는다.
+>     - 너무 짧으면 불필요한 재전송이 많이 발생하게 되고, 너무 길면 segment손실에 대해 반응이 느리다.
+> - Reliable data transfer
+>   - TCP sender events
+>     - app 계층으로부터 데이터를 받고, segment를 만들고, seq#를 부여하고, 타이머가 꺼져있다면 타이머를 시작시킨다.
+>     - ack을 받는 시간이 초과했다면 segment를 재전송한다.
+>     - ack을 받으면, 업데이트를 하고, 타이머를 재조정한다.
+>   - TCP receiver events
+>     - segment의 순서대로 도착하고, 모든 데이터에 대한 ack을 이미 보낸경우 -> 500ms정도 기다린다.(모아서 보내기 위해)
+>     - segment의 순서대로 도착하고, 한 segment가 ack을 보류하고 있는경우 -> 즉시 묶어서 ack을 보낸다.
+>     - segment의 순서대로 도착하지 않아서 gap이 생긴경우 -> 즉시 duplicate ack을 보낸다.
+>     - gap의 시작부분을 채우는 segment가 도착한 경우 -> 즉시 ack을 보낸다.
+>   - TCP fast retransmit
+>     - 만약 같은 데이터에 대한 3번의 duplicate ack을 받는다면 time-out시간 안에도 그 즉시 데이터를 재전송한다.(drop이 되었다고 판단. 지연이 길어지는 것을 방지하기 위함)
+> - Flow controll
+>   - tranport계층에서 application계층으로 데이터가 전달될 때, receiver측에서는 TCP socket receiver buffer에 데이터를 잠시 저장된다. 이때 buffer가 넘치면 데이터가 손실되므로 receiver측에서 버퍼의 남은 사이즈를 TCP segment header에 적어 보낸다. sender측에서는 버퍼 사이즈를 넘지 않는 경우에만 segment를 보낸다.
+> - Connection Management
