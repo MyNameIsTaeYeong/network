@@ -339,3 +339,17 @@ NYU and NYU Shanghai
 > - Flow controll
 >   - tranport계층에서 application계층으로 데이터가 전달될 때, receiver측에서는 TCP socket receiver buffer에 데이터를 잠시 저장된다. 이때 buffer가 넘치면 데이터가 손실되므로 receiver측에서 버퍼의 남은 사이즈를 TCP segment header에 적어 보낸다. sender측에서는 버퍼 사이즈를 넘지 않는 경우에만 segment를 보낸다.
 > - Connection Management
+>   - 3-way handshake : client가 server로 요청한다. server가 client의 요청을 확인한다. client가 server의 확인을 다시 확인한다.
+>   - closing a connection : client와 server가 각자의 연결을 끊는다.
+>
+> ### 3.7 TCP Congestion control
+>
+> - additive increase multiplicative decrease : loss가 발견될때 까지 cwnd를 천천히 증가시키고, loss가 발견된다면 cwnd를 급격히 감소시킨다.
+> - TCP Congestion Avoidance
+>   - sstresh : cwnd의 증가속도를 정하는 기준. cwnd < sstresh면, cwnd를 2배씩 증가시키고, cwnd > sstresh면 cwnd를 1개씩 증가시킨다. 만약 loss가 발생한다면 ssthresh를 cwnd/2로 줄인다.
+> - TCP : detecting, reacting to loss
+>   - TCP Tahoe : timeout, 3duplicate acks가 발생하면 cwnd를 1로, ssthresh를 반으로 줄인다.
+>   - TCP RENO : timeout -> cwnd를 1로, 3duplicate acks -> cwnd, ssthresh를 반으로 줄인다.
+> - TCP performance metric
+>   - TCP throughput : 평균적으로 3/4 \* W/RTT가 나온다. 여기서 W는 loss가 발생하는 window size다.
+>   - TCP Fairness : 같은 link를 사용하는 connection들이 공평하게 bandwidth를 사용하는 것.
