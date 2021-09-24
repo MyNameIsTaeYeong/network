@@ -353,3 +353,24 @@ NYU and NYU Shanghai
 > - TCP performance metric
 >   - TCP throughput : 평균적으로 3/4 \* W/RTT가 나온다. 여기서 W는 loss가 발생하는 window size다.
 >   - TCP Fairness : 같은 link를 사용하는 connection들이 공평하게 bandwidth를 사용하는 것.
+>
+> ## Chapter 4 Network Layer
+>
+> ### 4.1 Introduction
+>
+> - tranport계층에서 내려온 segment를 datagram으로 감싸서 receiving host로 보낸다.
+> - receiving host에서는 전달된 segment를 tranport계층으로 보낸다.
+> - network계층 protocol은 모든 host, router에 있다.
+> - router는 datagram의 header를 조사하여 다음 목적지로 보낸다.
+> - network계층의 핵심 기능 2가지
+>   - forwarding : router의 input으로 들어온 패킷을 적절한 output으로 옮긴다.
+>   - routing : 패킷이 전송될 경로를 정한다.
+>
+> ### 4.2 virtual circuit and datagram networks
+>
+> - virtual circuit : network layer connection service
+>   - call setup : 목적지로 call을 보내면서 경로를 결정한다.
+>   - 각 패킷은 vc식별자로 식별된다.
+> - datagram : network layer connectionless service
+>   - call setup단계가 존재하지 않는다.
+>   - 목적지 주소에 의해 패킷은 내보내진다. 이때 구체적인 목적지 주소보다는 주소의 범위를 사용한다.
