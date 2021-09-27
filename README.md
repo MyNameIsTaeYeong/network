@@ -374,3 +374,22 @@ NYU and NYU Shanghai
 > - datagram : network layer connectionless service
 >   - call setup단계가 존재하지 않는다.
 >   - 목적지 주소에 의해 패킷은 내보내진다. 이때 구체적인 목적지 주소보다는 주소의 범위를 사용한다.
+>
+> ### 4.3 what's inside a router
+>
+> - Input port
+>   - line speed에 맞춰 switching fabrics로 datagram을 forwarding하는 것을 목표로 한다.
+>   - 만약 switching fabrics로 나가는 속도보다 datagram의 도착속도가 빠르면 queueing버퍼에 저장한다.
+> - Switching fabrics
+>   - input buffer의 패킷을 적절한 output buffer로 전달한다.
+> - Output port
+>   - switching fabrics에서 들어오는 datagram유입속도가 전송속도보다 빠르면 버퍼에 저장한다.
+>   - 전송을 위해 버퍼에서 datagram을 고른다.(이때, 우선순위에 의해 순서가 바뀔수도 있다.)
+>
+> ### 4.4 IP : Internet Protocol
+>
+> - IP fragmentation, reassembly
+>   - datagram의 크기가 network link의 전송사이즈를 넘어가면, datagram을 여러개의 fragment로 쪼개고 이를 destination에서 다시 조립한다.
+> - IPv4 addressing
+>   - subnet part와 host part로 이루어져 있다.
+>   - subnet은 라우터를 거치지 않고 물리적으로 도달할 수 있는 범위이다.
