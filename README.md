@@ -392,4 +392,16 @@ NYU and NYU Shanghai
 >   - datagram의 크기가 network link의 전송사이즈를 넘어가면, datagram을 여러개의 fragment로 쪼개고 이를 destination에서 다시 조립한다.
 > - IPv4 addressing
 >   - subnet part와 host part로 이루어져 있다.
->   - subnet은 라우터를 거치지 않고 물리적으로 도달할 수 있는 범위이다.
+>   - subnet은 라우터를 거치지 않고 물리적으로 도달할 수 있는 범위이다.
+> - DHCP(Dynamic Host Configuration Protocol)
+>   - host가 network에 join할 때, server로부터 동적으로 IP주소를 획득하는 것을 목표로 한다.
+>   - 주소를 일정기간동안 할당하고 회수한다.
+>   - 주소의 재사용이 가능하다.
+>   - host가 DHCP discover msg를 뿌린다. -> 이를 받은 DHCP server가 DHCP offer msg를 제공한다. -> host는 DHCP request msg를 보낸다. -> server는 DHCP ack msg를 보낸다.
+> - NAT(Network Address Translation)
+>   - local network와 outside network를 분리하여 local network내부에서는 임의로 IP주소를 사용하는 방식.
+>   - ISP로부터 subnet을 할당받지 않아도 된다.
+>   - local network내부의 변화를 outside network로 알리지 않아도 된다.
+>   - ISP를 바꿀때도 문제가 없다.
+>   - local network를 캡슐화 한다고 생각.
+>   - 위의 것들이 가능하기 위해서 NAT router는 mapping table을 가져야 한다.
