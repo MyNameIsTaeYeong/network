@@ -405,3 +405,17 @@ NYU and NYU Shanghai
 >   - ISP를 바꿀때도 문제가 없다.
 >   - local network를 캡슐화 한다고 생각.
 >   - 위의 것들이 가능하기 위해서 NAT router는 mapping table을 가져야 한다.
+> - ICMP(internet control message protocol)
+>   - host와 router사이의 소통을 위한 프로토콜. 에러 알림, 또는 핑퐁(req, res)에 주로 사용된다.
+> - IPv6
+>   - IPv4의 주소부족 문제를 해결하기 위해 나옴.
+>   - IPv6는 datagram의 header size를 40byte로 고정하여 router내부에서 processing / forwarding 속도를 높였다.
+>   - header에 flow label, priority를 추가하여 파일전송과 같은 작업의 Qos(Quality of service)를 유지하는데 용이하도록 하였다.
+>     - priority : flow의 datagram중 우선순위 식별자.
+>     - flow label : datagram이 같은 flow인지 아닌지를 식별한다.
+>   - tunneling : IPv4에서 IPv6로 모든 라우터들을 동시에 변경하기는 현실적으로 불가능하기에 IPv6 datagram은 IPv4를 사용하는 router에 보내질 때, IPv4 datagram에 적재하여 보내진다.
+>
+> ### 4.5 routing algorithms
+>
+> - link state : 모든 라우터가 라우터들의 배치, 링크 cost를 알고있는 경우 사용하는 알고리즘.
+>   - Dijkstra's algorithm
