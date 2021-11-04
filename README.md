@@ -304,11 +304,12 @@ NYU and NYU Shanghai
 >
 > : 별도의 connection없이 메시지를 보내는 프토토콜. 메시지는 중간에 잃어버리거나, 순서가 바뀔수도 있다. 약간의 손실이 큰 지장을 주지 않는 서비스에 사용된다. 예를들면 스트리밍 서비스가 있다. 간단하고, 헤더사이즈가 작으며, flow controll, congestion controll이 없어 바라는 만큼 메시지를 보낼 수 있다. application 자체에서 에러에 대한 대비를 한다면 오히려 유용할 수도 있다.
 >
-> - UDP segment header
+> - UDP segment format
 >   - source port #
 >   - destination port #
 >   - length
 >   - checksum
+>   - application data
 >
 > ### 3.4 Principles of reliable data transfer
 >
