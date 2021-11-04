@@ -348,7 +348,7 @@ NYU and NYU Shanghai
 >   - tranport계층에서 application계층으로 데이터가 전달될 때, receiver측에서는 TCP socket receiver buffer에 데이터를 잠시 저장된다. 이때 buffer가 넘치면 데이터가 손실되므로 receiver측에서 버퍼의 남은 사이즈를 TCP segment header에 적어 보낸다. sender측에서는 버퍼 사이즈를 넘지 않는 경우에만 segment를 보낸다.
 > - Connection Management
 >   - 3-way handshake : client가 server로 요청한다. server가 client의 요청을 확인한다. client가 server의 확인을 다시 확인한다.
->   - closing a connection : client와 server가 각자의 연결을 끊는다.
+>   - closing a connection(4-way handshake) : client가 FINbit를 1로하고 연결해제를 요청한다. -> server가 ack을 보낸다. -> server는 마지막데이터를 보내고 FINbit를 1로하고 데이터전송이 끝났음을 알린다. -> client가 ack을 보내고 일정시간이 지난 후 close한다.(이때 서버는 ack을 받고 close한다.)
 >
 > ### 3.7 TCP Congestion control
 >
