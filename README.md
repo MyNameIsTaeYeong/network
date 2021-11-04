@@ -313,16 +313,17 @@ NYU and NYU Shanghai
 >
 > ### 3.4 Principles of reliable data transfer
 >
-> - checksum
-> - Acknowledgement
-> - Negative acknowledgement
-> - Timer
-> - Window, Pipelining
-> - Sequence number
+> - checksum : 받은 데이터를 확인하는 변수.
+> - Acknowledgement : 이전까지는 잘 받았고, 이제 받고자 하는 번호.
+> - Negative acknowledgement : 잘못된 데이터를 받은 경우 보낸다.
+> - Timer : ack을 받기위해 기다리는 시간. ack이 도착하지 않으면 해당 데이터를 다시 보낸다.
+> - Window : ack을 받지 않은 데이터를 얼마만큼 보내도 되는지를 나타내는 변수.
+> - Pipelining : connection을 최대로 활용하기 위해 데이터를 계속해서 보낸다.
+> - Sequence number : 적제된 데이터의 첫번째 비트가 몇번째 순서인지 나타내는 번호.
 >
 > ### 3.5 Connection - oriented transport : TCP
 >
-> : connection 기반에 프토토콜. 메시지 전송에 대해 안정적이며, 순서유지가 가능하고, 네트워크 흐름, 혼잡을 제어할 수 있다. segment 헤더가 크다.
+> : connection 기반의 프토토콜. 메시지 전송에 대해 안정적이며, 순서유지가 가능하고, 네트워크 흐름, 혼잡을 제어할 수 있다. segment 헤더가 크다.
 >
 > - TCP segment structure
 >   - sequence number : message의 순서. 중복으로 같은 메시지를 받는것을 예방하기도 한다.
@@ -338,7 +339,7 @@ NYU and NYU Shanghai
 >     - ack을 받으면, 업데이트를 하고, 타이머를 재조정한다.
 >   - TCP receiver events
 >     - segment의 순서대로 도착하고, 모든 데이터에 대한 ack을 이미 보낸경우 -> 500ms정도 기다린다.(모아서 보내기 위해)
->     - segment의 순서대로 도착하고, 한 segment가 ack을 보류하고 있는경우 -> 즉시 묶어서 ack을 보낸다.
+>     - segment의 순서대로 도착하고, 이전 segment가 ack을 보류하고 있는경우 -> 즉시 묶어서 ack을 보낸다.
 >     - segment의 순서대로 도착하지 않아서 gap이 생긴경우 -> 즉시 duplicate ack을 보낸다.
 >     - gap의 시작부분을 채우는 segment가 도착한 경우 -> 즉시 ack을 보낸다.
 >   - TCP fast retransmit
