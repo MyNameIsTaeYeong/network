@@ -361,7 +361,7 @@ NYU and NYU Shanghai
 >
 > - additive increase multiplicative decrease : loss가 발견될때 까지 cwnd를 천천히 증가시키고, loss가 발견된다면 cwnd를 급격히 감소시킨다.
 > - TCP Congestion Avoidance
->   - sstresh : cwnd의 증가속도를 정하는 기준. cwnd < sstresh면, cwnd를 2배씩 증가시키고, cwnd > sstresh면 cwnd를 1개씩 증가시킨다. 만약 loss가 발생한다면 ssthresh를 cwnd/2로 줄인다.
+>   - ssthresh : cwnd의 증가속도를 정하는 기준. cwnd < sstresh면, cwnd를 2배씩 증가시키고, cwnd > sstresh면 cwnd를 1개씩 증가시킨다. 만약 loss가 발생한다면 ssthresh를 cwnd/2로 줄인다.
 > - TCP : detecting, reacting to loss
 >   - TCP Tahoe : timeout, 3duplicate acks가 발생하면 cwnd를 1로, ssthresh를 반으로 줄인다.
 >   - TCP RENO : timeout -> cwnd를 1로, 3duplicate acks -> cwnd, ssthresh를 반으로 줄인다.
@@ -434,3 +434,5 @@ NYU and NYU Shanghai
 >
 > - link state : 모든 라우터가 라우터들의 배치, 링크 cost를 알고있는 경우 사용하는 알고리즘.
 >   - Dijkstra's algorithm
+> - distance vector : 인접 라우터의 정보만을 알고있는 경우 사용하는 알고리즘.
+>   - Bellman-Ford algorithm
