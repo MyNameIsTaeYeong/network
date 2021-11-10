@@ -436,3 +436,18 @@ NYU and NYU Shanghai
 >   - Dijkstra's algorithm
 > - distance vector : 인접 라우터의 정보만을 알고있는 경우 사용하는 알고리즘.
 >   - Bellman-Ford algorithm
+>     - 인접노드의 거리벡터(다른 노드까지의 최단거리)를 이용해서 최단거리를 구하는 알고리즘
+>     - 자신의 cost가 변하거나 인접노드의 거리벡터가 변하면 최단거리를 다시 계산한 후 broadcast.
+>     - count to infinity(인접노드간에 변화를 계속해서 주고받는 상황)문제가 발생할 수 있다.
+>     - poisoned reverse(경로가 X -> Y -> Z인 경우 Y가 Z로 가는 경로를 X에게 물어볼때 모른척 즉, 거리가 무한대라고 한다.)로 해결하지만 루프가 생기는 경우는 해결하지 못한다.
+> - hierarchical routing
+>   - link state, distance vector 알고리즘은 2가지 문제가 존재.
+>   - 네트워크가 점점 커지면서 그 규모를 감당하기 힘들다.
+>   - 관리 측면에서 각 지역단위로 네트워크를 관리하기를 원한다.
+>   - 따라서 내부지역과 외부지역에 각각 라우팅 알고리즘을 적용한다.
+>   - intra(내부) - AS(autonomous system) routing
+>     - link state
+>     - distance vector
+>   - inter(외부) - AS routing
+>     - gateway router(외부 AS와 연결되어 있는 라우터)를 통하여 외부 AS를 통해 갈 수 있는 정보를 받아온다.
+>     - 받아온 정보를 내부 라우터에 전파한다.
