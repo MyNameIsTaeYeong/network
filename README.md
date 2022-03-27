@@ -313,7 +313,7 @@ NYU and NYU Shanghai
 >
 > ### 3.4 Principles of reliable data transfer
 >
-> - checksum : 받은 데이터를 확인하는 변수.
+> - checksum : 받은 데이터의 를 확인하는 변수.
 > - Acknowledgement : 이전까지는 잘 받았고, 이제 받고자 하는 번호.
 > - Negative acknowledgement : 잘못된 데이터를 받은 경우 보낸다.
 > - Timer : ack을 받기위해 기다리는 시간. ack이 도착하지 않으면 해당 데이터를 다시 보낸다.
